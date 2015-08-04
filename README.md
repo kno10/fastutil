@@ -1,3 +1,19 @@
+This is a MODIFIED version of fastutil.
+---------------------------------------
+
+Complete fastutil has 24 Megabytes. This is a lot.
+
+This version tries to select the most important subset only,
+and has only 7.5 MB. Things dropped include maps that use floating
+point values as keys for example.
+
+There were no modifications to the classes.
+
+It is not yet uploaded to any Maven repository, sorry.
+It was not tested enough.
+
+https://github.com/kno10/fastutil/releases
+
 Welcome to fastutil.
 --------------------
 
