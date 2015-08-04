@@ -7,8 +7,8 @@
 	<!-- ************************************** WARNING: MAVEN SH*T ************************************** -->
 
 	<!-- define Maven coordinates -->
-	<property name="groupId" value="it.unimi.dsi" />
-	<property name="artifactId" value="fastutil" />
+	<property name="groupId" value="com.github.kno10" />
+	<property name="artifactId" value="fastutil-popular" />
 	<property name="version" value="${version}" />
 
 	<property name="maven-jar" value="${dist}/lib/${artifactId}-${version}.jar" />
@@ -128,7 +128,7 @@
 	</target>
 
 	<target name="compile" depends="init">
-		<javac srcdir="${src}" 
+		<javac
 			debug="on"
 			deprecation="on"
 			optimize="on"
@@ -138,11 +138,32 @@
 			fork="yes"
 			source="1.7"
 			target="1.7"
-		/>
+		>
+			<src path="${src}" />
+			<include name="**/*.java" />
+			<!-- Float, Double do not make good keys -->
+			<exclude name="**/*Float2*.java" />
+			<exclude name="**/*Double2*.java" />
+			<!-- Byte keys: use arrays. Short/Char are redundant -->
+			<exclude name="**/*Byte2*.java" />
+			<exclude name="**/*Short2*.java" />
+			<exclude name="**/*Char2*.java" />
+			<!-- reference values are almost always better than object values -->
+			<exclude name="**/*2Object*.java" />
+			<!-- Big data types -->
+			<exclude name="**/Size64.java" />
+			<exclude name="**/*Big*.java" />
+			<exclude name="**/*FrontCoded*.java" />
+			<exclude name="**/TextIO.java" />
+			<exclude name="**/BinIO.java" />
+			<exclude name="**/FastMultiByteArrayInputStream.java" />
+			<!-- Without Big, the io package is largely gone -->
+			<exclude name="**/io/*.java" />
+		</javac>
 	</target>
 
 	<target name="compile-tests" depends="compile">
-		<javac srcdir="${test}" 
+		<javac
 			debug="on"
 			deprecation="on"
 			optimize="on"
@@ -152,7 +173,28 @@
 			fork="yes"
 			source="1.7"
 			target="1.7"
-		/>
+		>
+			<src path="${src}" />
+			<include name="**/*.java" />
+			<!-- Float, Double do not make good keys -->
+			<exclude name="**/*Float2*.java" />
+			<exclude name="**/*Double2*.java" />
+			<!-- Byte keys: use arrays. Short/Char are redundant -->
+			<exclude name="**/*Byte2*.java" />
+			<exclude name="**/*Short2*.java" />
+			<exclude name="**/*Char2*.java" />
+			<!-- reference values are almost always better than object values -->
+			<exclude name="**/*2Object*.java" />
+			<!-- Big data types -->
+			<exclude name="**/Size64.java" />
+			<exclude name="**/*Big*.java" />
+			<exclude name="**/*FrontCoded*.java" />
+			<exclude name="**/TextIO.java" />
+			<exclude name="**/BinIO.java" />
+			<exclude name="**/FastMultiByteArrayInputStream.java" />
+			<!-- Without Big, the io package is largely gone -->
+			<exclude name="**/io/*.java" />
+		</javac>
 	</target>
 
 	<target name="jar" depends="compile">

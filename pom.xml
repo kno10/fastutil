@@ -1,9 +1,9 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>it.unimi.dsi</groupId>
-  <artifactId>fastutil</artifactId>
+  <groupId>com.github.kno10</groupId>
+  <artifactId>fastutil-popular</artifactId>
   <packaging>jar</packaging>
-  <name>fastutil</name>
+  <name>fastutil-popular</name>
   <version>7.0.8</version>
   <description>fastutil extends the Java Collections Framework by providing type-specific maps, sets, lists and priority queues with a small memory footprint and fast access and insertion; provides also big (64-bit) arrays, sets and lists, and fast, practical I/O classes for binary and text files.</description>
   <url>http://fasutil.di.unimi.it/</url>
@@ -15,8 +15,8 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git://github.com/vigna/fastutil.git</connection>
-    <url>https://github.com/vigna/fastutil</url>
+    <connection>scm:git://github.com/kno10/fastutil.git</connection>
+    <url>https://github.com/kno10/fastutil</url>
   </scm>
   <developers>
     <developer>
