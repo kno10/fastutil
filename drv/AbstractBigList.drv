@@ -422,7 +422,7 @@ public abstract class ABSTRACT_BIG_LIST KEY_GENERIC extends ABSTRACT_COLLECTION 
 	}
 
 	/** Delegates to the corresponding type-specific method. */
-	public KEY_CLASS pop() {
+	public KEY_GENERIC_CLASS pop() {
 		return KEY_CLASS.valueOf( POP() ); 
 	}
 
